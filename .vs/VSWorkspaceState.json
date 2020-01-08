@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\cart-details",
+    "\\src\\app\\checkout-cart",
+    "\\src\\app\\home",
+    "\\src\\app\\products",
+    "\\src\\app\\services",
+    "\\src\\app\\user-details"
+  ],
+  "SelectedNode": "\\src\\app\\services\\shopping-cart.service.ts",
+  "PreviewInSolutionExplorer": false
+}

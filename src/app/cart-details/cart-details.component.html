@@ -1,0 +1,80 @@
+<div class="container-fluid">
+  <div class="row container-layout m-auto">
+    <div class="col-12 col-md-9">
+      <div class="product-layout">
+        <div class="sort-by row">
+          <div class="col page-title">My Cart</div>
+        </div>
+        <div class="row items-box" *ngFor="let cartitem of cartItems">
+          <div class="col-12 col-md-4 col-xl-2">
+            <div class="img-banner">
+              <img src="{{cartitem.imageUrl}}" alt="{{cartitem.name}}" />
+            </div>
+          </div>
+          <div class="col-12 col-md-5 col-xl-6 item-details">
+            <div class="movie-name">{{cartitem.name}}</div>
+            <div class="movie-format">{{cartitem.format}}</div>
+            <div class="movie-price">
+              <span>₹ {{cartitem.price}}</span>
+              <div class="inline-block item-quantity xs-display-inline">
+                <select class="form-control" id="itemQuantity" name="item-quantity" [value]="cartitem.quantity" (change)="updateQuantity(cartitem,$event.target.value)">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-3 col-xl-4 xs-hide">
+            <div class="item-quantity">
+              <select class="form-control" id="itemQuantity" name="item-quantity" [value]="cartitem.quantity" (change)="updateQuantity(cartitem,$event.target.value)">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row siderbar xs-display">
+          <div class="price-details-title border-bottom">
+            <h5>PRICE DETAILS</h5>
+          </div>
+          <div class="price-details">
+            <!--<div class="row item-price">
+              <div class="col-6">Price (2 items)</div>
+              <div class="col-6 text-right">₹ <span>660</span></div>
+            </div>-->
+            <div class="row total-price">
+              <div class="col-6">Total Payable</div>
+              <div class="col-6 text-right">₹ <span>{{totalPrice}}</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="row place-order">
+          <div class="col">
+            <button type="button" class="btn btn-lg" (click)="placeOrder()">Place Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-3 siderbar xs-hide">
+      <div class="price-details-title border-bottom">
+        <h5>PRICE DETAILS</h5>
+      </div>
+      <div class="price-details">
+        <!--<div class="row item-price">
+          <div class="col-6">Price (2 items)</div>
+          <div class="col-6 text-right">₹ <span>660</span></div>
+        </div>-->
+        <div class="row total-price">
+          <div class="col-6">Total Payable</div>
+          <div class="col-6 text-right">₹ <span>{{totalPrice}}</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

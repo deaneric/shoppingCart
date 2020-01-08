@@ -1,0 +1,42 @@
+
+<div class="container">
+  <form class="vertical-center" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-row form-group">
+      <label class="offset-1 col-3">Name</label>
+      <input type="text" class="col-7 col-md-6 form-control form-control-sm input-style" formControlName="name" [ngClass]="{ 'is-invalid': submitted && currentModel.name.errors }" />
+      <div *ngIf="submitted && currentModel.name.errors" class="invalid-feedback">
+        <div *ngIf="currentModel.name.errors.required">First Name is required</div>
+      </div>
+    </div>
+    <div class="form-row form-group">
+      <label class="offset-1 col-3">Email</label>
+      <input type="email" class="col-7 col-md-6 form-control form-control-sm input-style" formControlName="email" [ngClass]="{ 'is-invalid': submitted && currentModel.email.errors }" />
+      <div *ngIf="submitted && currentModel.email.errors" class="invalid-feedback">
+        <div *ngIf="currentModel.email.errors.required">Email is required</div>
+        <div *ngIf="currentModel.email.errors.email">Email must be a valid email address</div>
+      </div>
+    </div>
+    <div class="form-row form-group">
+      <label class="offset-1 col-3">Mobile Number</label>
+      <input type="number" class="col-7 col-md-6 form-control form-control-sm input-style" formControlName="mobile" [ngClass]="{ 'is-invalid': submitted && currentModel.mobile.errors }" />
+      <div *ngIf="submitted && currentModel.mobile.errors" class="invalid-feedback">
+        <div *ngIf="currentModel.mobile.errors.required">Mobile is required</div>
+        <div *ngIf="currentModel.mobile.errors.pattern">Mobile number must contain 10 digits.</div>
+      </div>
+    </div>
+    <div class="form-row form-group">
+      <label class="offset-1 col-3">Address</label>
+      <textarea class="col-7 col-md-6 form-control form-control-sm input-style" rows="4" cols="50" formControlName="address" [ngClass]="{ 'is-invalid': submitted && currentModel.address.errors }"></textarea>
+      <div *ngIf="submitted && currentModel.address.errors" class="invalid-feedback">
+        <div *ngIf="currentModel.address.errors.required">Address is required</div>
+      </div>
+    </div>
+    <div class="form-row form-group">
+      <div class="col-11 col-md-10 text-right">
+        <button class="btn btn-primary" type="submit">Next</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+

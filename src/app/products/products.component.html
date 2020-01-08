@@ -1,0 +1,106 @@
+<div class="container-fluid">
+  <div class="row container-layout m-auto">
+    <div class="col-12 col-md-3 siderbar">
+      <div class="filter-title border-bottom d-flex justify-content-between align-items-center">
+        <h5 class="">Filters</h5>
+        <span class="clear-filter" *ngIf="showFilter" (click)="clearAllFilter()">CLEAR</span>
+      </div>
+      <div class="price-range border-bottom">
+        <h5>Price</h5>
+        <div class="form-group">
+          <select class="form-control" id="priceMinimum" name="price-minimum" [value]="minimumPrice" (change)="getMinimumPrice($event.target.value)">
+            <option value="Min" selected>Min</option>
+            <option value="200">200</option>
+            <option value="500">500</option>
+            <option value="1000">1000</option>
+          </select>
+          <span>to</span>
+          <select class="form-control" id="priceMaximum" name="price-maximum" [value]="maximumPrice" (change)="getMaximumPrice($event.target.value)">
+            <option value="500">500</option>
+            <option value="1000">1000</option>
+            <option value="2000">2000</option>
+            <option value="3000" selected>3000</option>
+          </select>
+        </div>
+      </div>
+      <div class="genre-range border-bottom">
+        <h5>Genre</h5>
+        <div class="form-check">
+          <label class="form-check-label" for="check1">
+            <input type="radio" class="form-check-input" id="superhero" name="genre" value="Superhero" [(ngModel)]="genre" (change)="getType($event.target.value,$event.target.name)">Superhero
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label" for="check2">
+            <input type="radio" class="form-check-input" id="documentry" name="genre" value="Documentry" [(ngModel)]="genre" (change)="getType($event.target.value,$event.target.name)">Documentry
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" id="fiction" name="genre" value="Fiction" [(ngModel)]="genre" (change)="getType($event.target.value,$event.target.name)">Fiction
+          </label>
+        </div>
+      </div>
+      <div class="genre-range">
+        <h5>Format</h5>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="format" id="3DBluRay" [(ngModel)]="format" (change)="getType($event.target.value,$event.target.name)" value="3D-BluRay">3D-BluRay
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="format" id="bluray" [(ngModel)]="format" (change)="getType($event.target.value,$event.target.name)" value="BluRay">BluRay
+          </label>
+        </div>
+        <div class="form-check disabled">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="format" id="dvd" [(ngModel)]="format" (change)="getType($event.target.value,$event.target.name)" value="DVD">DVD
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-9">
+      <div class="product-layout">
+        <div class="row sort-by">
+          <div class="col-12 text-right mob-cart-head">
+            <div class="display-inline align-middle display-cart"><i class="fa fa-shopping-cart"></i><span>{{cartSize}}</span></div>
+            <button type="button" class="btn btn-primary checkout-cart" (click)="checkoutCart()" [disabled]="cartSize === 0">Checkout</button>
+          </div>
+
+        </div>
+        <div class="sort-by">
+          <div class="display-inline text-center"><b>Sort By</b></div>
+          <div class="display-inline text-center cursor-pointer" (click)="sortLowToHigh()">Price -- Low to High</div>
+          <div class="display-inline text-center cursor-pointer" (click)="sortHighToLow()">Price -- High to Low</div>
+          <div class="display-inline text-center cursor-pointer" (click)="sortAlphabet()">Alphabetically</div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let product of products">
+            <div class="item-layout">
+              <div class="img-banner">
+                <img src="{{product.imageUrl}}" alt="{{product.name}}" />
+              </div>
+              <div class="product-title">{{product.name}}</div>
+              <div class="product-format">{{product.format}}</div>
+              <div class="d-flex flex-row justify-content-between align-items-center">
+                <div class="product-price display-inline">₹<span>{{product.price}}</span></div>
+                <div class="display-inline">
+                  <button type="button" class="btn btn-warning shop-cart" (click)="storeInCart(product)" *ngIf="!product.showCartBtn"><svg class="" width="16" height="16" viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg"><path class="" d="M15.32 2.405H4.887C3 2.405 2.46.805 2.46.805L2.257.21C2.208.085 2.083 0 1.946 0H.336C.1 0-.064.24.024.46l.644 1.945L3.11 9.767c.047.137.175.23.32.23h8.418l-.493 1.958H3.768l.002.003c-.017 0-.033-.003-.05-.003-1.06 0-1.92.86-1.92 1.92s.86 1.92 1.92 1.92c.99 0 1.805-.75 1.91-1.712l5.55.076c.12.922.91 1.636 1.867 1.636 1.04 0 1.885-.844 1.885-1.885 0-.866-.584-1.593-1.38-1.814l2.423-8.832c.12-.433-.206-.86-.655-.86" fill="#fff"></path></svg> ADD TO CART</button>
+                  <button type="button" class="btn btn-warning shop-cart" (click)="deleteInCart(product)" *ngIf="product.showCartBtn">Remove</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ul>
+  <li *ngFor="let items of cartItems">
+    {{items.name}}
+  </li>
+</ul>

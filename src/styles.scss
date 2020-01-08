@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+.cursor-pointer { cursor: pointer; }
+body { background-color: #f1f3f6 !important; /*background: url(/assets/images/Background-Two.jpg); background-repeat: repeat;*/ }
+.border-bottom { border-bottom: 1px solid #f0f0f0; }
+.layout { width: 90%; margin: auto; }
+.home-layout { position: absolute; width: 400px; /*min-height: 330px;*/ top: 50%; left: 50%; -webkit-transform: translateY(-50%) translateX(-50%); -ms-transform: translateY(-50%) translateX(-50%); transform: translateY(-50%) translateX(-50%); -moz-transform: translateY(-50%) translateX(-50%); text-align: center;
+  img { height: 200px; }
+}
+.btn-primary { font-size: 20px; text-transform: uppercase; background-color: #0e3fa9 !important; border-color: #0e3fa9 !important; padding: 6px 20px !important;
+  &:hover, &:focus { box-shadow: 0 0 0 0.2rem rgb(255, 169, 3) !important; }
+  &:active { background-color: #0e3fa9 !important; border-color: #0e3fa9 !important;
+    &:focus { box-shadow: 0 0 0 0.2rem rgb(255, 169, 3) !important; }
+  }
+}
+.form-control {
+  &:focus { border-color: #ffa903 !important; box-shadow: 0 0 0 1px rgb(255, 169, 3) !important; }
+}
+
+
+/*For screen size for 1024px*/
+@media only screen and (max-width:1024px) {
+}
+
+/*For screen size for 768px*/
+@media only screen and (max-width:768px) {
+}
+
+/*For screen size upto 600px*/
+@media only screen and (max-width:600px) {
+  .home-layout { width: 300px;
+    img { height: 160px; }
+  }
+}
+
+/*For screen size upto 480px*/
+@media only screen and (max-width:480px) {
+}
+
+/*For screen size upto 320px*/
+@media only screen and (max-width:320px) {
+}

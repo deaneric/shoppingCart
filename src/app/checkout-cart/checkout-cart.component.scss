@@ -1,0 +1,48 @@
+.container-layout { padding: 90px 0; width: 80%; }
+.checkout-layout { background: #fbfbfb; box-shadow: 0 1px 8px 0 rgba(0,0,0,.06); padding: 0; margin-bottom: 15px; }
+.checkout-users-details, .checkout-product-details { border-top: 1px solid #f0f0f0 !important; }
+.checkout-title { font-size: 20px; font-weight: 500; padding: 10px 20px; }
+.checkout-users-details, .checkout-product-details {
+  div { padding: 5px 20px;
+    &:first-child { padding-top: 15px }
+    &:last-child { padding-bottom: 15px }
+    span {
+      &:first-child { font-size: 16px; font-weight: 600; margin-right: 5px; }
+    }
+  }
+}
+.final-amount { padding: 15px 20px; border-top: 1px solid #f0f0f0 !important;
+  span {
+    &:first-child { font-size: 16px; font-weight: 600; margin-right: 5px; }
+  }
+}
+.print-bill { background: #fbfbfb; box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.06); margin-bottom: 15px; padding: 10px 15px; text-align: right;
+  button { background: #fb641b; color: #ffffff; box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2); text-transform: uppercase; border: none; }
+}
+
+
+/*For screen size for 1440px*/
+@media only screen and (max-width:1440px) {
+  .container-layout { width: 90%; }
+}
+
+/*For screen size for 1024px*/
+@media only screen and (max-width:1024px) {
+}
+
+/*For screen size for 768px*/
+@media only screen and (max-width:768px) {
+  h5 { font-size: 18px; }
+}
+
+/*For screen size upto 600px*/
+@media only screen and (max-width:600px) {
+}
+
+/*For screen size upto 480px*/
+@media only screen and (max-width:480px) {
+}
+
+/*For screen size upto 320px*/
+@media only screen and (max-width:320px) {
+}

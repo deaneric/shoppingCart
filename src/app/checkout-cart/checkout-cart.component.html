@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="row container-layout m-auto">
+    <div class="col-12 checkout-layout">
+      <div class="checkout-title">
+        User Details
+      </div>
+      <div class="checkout-users-details">
+        <div>
+          <span>Name :</span><span>{{userDetails.name}}</span>
+        </div>
+        <div>
+          <span>Email :</span><span>{{userDetails.email}}</span>
+        </div>
+        <div>
+          <span>Mobile Number :</span><span>{{userDetails.mobile}}</span>
+        </div>
+        <div>
+          <span>Address :</span><span>{{userDetails.address}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 checkout-layout">
+      <div class="checkout-title">
+        Checkout Cart
+      </div>
+      <div class="checkout-product-details" *ngFor="let cartitem of cartDetails">
+        <div>
+          <span>Product Name :</span><span>{{cartitem.name}}</span>
+        </div>
+        <div>
+          <span>Product Price :</span><span>{{cartitem.price}}</span>
+        </div>
+        <div>
+          <span>Quantity :</span><span>{{cartitem.quantity}}</span>
+        </div>
+      </div>
+      <div class="final-amount">
+        <span>Final Amount :</span><span>{{finalAmount}}</span>
+      </div>
+    </div>
+    <div class="col-12 print-bill">
+      <button type="button" class="btn" (click)="downloadAsPDF()">Pay Button</button>
+    </div>
+  </div>
+  <!--<div class="row container-layout m-auto">
+
+  </div>
+  <div class="row container-layout m-auto">
+
+  </div>-->
+
+</div>
+
